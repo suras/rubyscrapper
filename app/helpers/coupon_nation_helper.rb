@@ -1,0 +1,2 @@
+module CouponNationHelper
+end

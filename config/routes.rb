@@ -1,5 +1,9 @@
 Fashion::Application.routes.draw do
+  get "coupon_nation/index"
   root "myntra#index"
+  get "/coupon_dunia", :to => "coupondunia#index"
+  get "/coupon_nation", :to => "coupon_nation#index"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

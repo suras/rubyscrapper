@@ -8,7 +8,12 @@ class CouponduniaController < ApplicationController
   	main_links.each do |link|
       main_links_array << link.at('a')["href"]
   	end
-   render :text => get_coupons(main_links_array)
+  	arr = get_coupons(main_links_array)
+  	view = ""
+  	arr.each do |a|
+       view += "<p>"+ a+"</p>"
+  	end
+   render :text => view.html_safe
   end
 
 

@@ -1,0 +1,2 @@
+module JustDialHelper
+end

@@ -1,10 +1,10 @@
 class JustDialController < ApplicationController
   def index
   	agent = Mechanize.new{ |agent| agent.user_agent_alias = 'Mac Safari'}
-  	page = agent.get('http://www.justdial.com/Bengaluru/peter-england')
+  	page = agent.get('http://www.justdial.com/Bangalore/Shopping-Malls/ct-496089')
   	#main_boxes = page.search(".rslwrp")
   	arr = Array.new
-  	arr << get_pages('http://www.justdial.com/Bengaluru/peter-england')
+  	arr << get_pages('http://www.justdial.com/Bangalore/Shopping-Malls/ct-496089')
   	pagination_links = page.links_with(:text => /^[0-9][0-9]?$/)
   	pagination_links.each do |page|
      arr << get_pages(page.href)
@@ -37,7 +37,8 @@ class JustDialController < ApplicationController
   def get_address(link)
     agent = Mechanize.new{ |agent| agent.user_agent_alias = 'Mac Safari'}
   	page = agent.get(link)
-  	page = page.search(".compdt").text()
+  	#page = page.search(".compdt").text()
+  	page = page.search(".hReview-aggregate").search(".item")[0].text()
 
   end
 

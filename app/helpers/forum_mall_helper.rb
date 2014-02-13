@@ -1,0 +1,2 @@
+module ForumMallHelper
+end
